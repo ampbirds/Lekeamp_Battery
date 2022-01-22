@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookingapp.dto.BatteryCodeDto;
 import com.bookingapp.dto.BatteryMasterDto;
 import com.bookingapp.dto.RequestIdDto;
+import com.bookingapp.dto.UpdateVoltageDto;
 import com.bookingapp.entity.BatteryMaster;
+import com.bookingapp.entity.BatteryTransaction;
 import com.bookingapp.service.BatteryMasterService;
 
 @RestController
@@ -44,6 +46,9 @@ public class BatteryController {
 		return new ResponseEntity<BatteryMaster>(batteryMasterService.getByBatteryCode(requestIdDto), new HttpHeaders(), HttpStatus.OK);
 	}
 	
-	
+	@GetMapping("/updateVoltage")
+	public ResponseEntity<BatteryMaster> updateVoltage(UpdateVoltageDto updateVoltageDto){
+		return new ResponseEntity<BatteryMaster>(batteryMasterService.updateVoltage(updateVoltageDto), new HttpHeaders(), HttpStatus.OK);
+	}
 
 }

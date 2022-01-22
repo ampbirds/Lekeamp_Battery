@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.bookingapp.dto.BatteryCodeDto;
 import com.bookingapp.dto.BatteryMasterDto;
 import com.bookingapp.dto.RequestIdDto;
+import com.bookingapp.dto.UpdateVoltageDto;
 import com.bookingapp.entity.BatteryMaster;
 import com.bookingapp.entity.StationMaster;
 import com.bookingapp.repository.BatteryMasterRepository;
@@ -61,6 +62,16 @@ public class BatteryMasterServiceImpl implements BatteryMasterService{
 	public BatteryMaster getByBatteryCode(BatteryCodeDto requestIdDto) {
 		// TODO Auto-generated method stub
 		return batteryMasterRepository.findByBatteryCode(requestIdDto.getBatteryCode());
+	}
+
+	@Override
+	public BatteryMaster updateVoltage(UpdateVoltageDto updateVoltageDto) {
+		Optional<BatteryMaster> batteryMaster = batteryMasterRepository.findById(updateVoltageDto.getId());
+		BatteryMaster batteryMaster2 = batteryMaster.get();
+		batteryMaster2.setBatteryVoltage(updateVoltageDto.getVoltage());
+		batteryMasterRepository.save(batteryMaster2);
+		Optional<BatteryMaster> batteryMaster3 = batteryMasterRepository.findById(updateVoltageDto.getId());
+		return  batteryMaster3.get();
 	}
 
 }

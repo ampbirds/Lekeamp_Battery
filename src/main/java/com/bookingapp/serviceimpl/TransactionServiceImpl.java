@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bookingapp.dto.TransactionDto;
+import com.bookingapp.dto.UpdateVoltageDto;
 import com.bookingapp.entity.BatteryMaster;
 import com.bookingapp.entity.BatteryTransaction;
 import com.bookingapp.entity.StationMaster;
@@ -86,6 +87,12 @@ public class TransactionServiceImpl implements TransactionService{
 	public List<BatteryTransaction> findAll() {
 		// TODO Auto-generated method stub
 		return transactionRepository.findAll();
+	}
+
+	@Override
+	public BatteryTransaction updateVoltage(UpdateVoltageDto updateVoltageDto) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

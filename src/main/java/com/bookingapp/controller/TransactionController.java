@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bookingapp.dto.TransactionDto;
+import com.bookingapp.dto.UpdateVoltageDto;
 import com.bookingapp.entity.BatteryTransaction;
 import com.bookingapp.service.TransactionService;
 
@@ -31,4 +32,6 @@ public class TransactionController {
 	public ResponseEntity<List<BatteryTransaction>> getAllDetails(){
 		return new ResponseEntity<List<BatteryTransaction>>(transactionService.findAll(), new HttpHeaders(), HttpStatus.OK);
 	}
+	
+	
 }

@@ -24,6 +24,9 @@ public class UserEntity {
 	@Column(name = "user_name")
 	private String userName;
 
+	@Column(name = "email")
+	private String email;
+	
 	@Column(name = "user_surname")
 	private String userSurname;
 	
@@ -41,6 +44,9 @@ public class UserEntity {
 	
 	@Column(name = "phonenumber")
 	private String phoneNumber;
+	
+	@Column(name = "password")
+	private String password;
 	
 	@Column(name = "vehicle_model")
 	private String vehicleModel;
@@ -269,6 +275,22 @@ public class UserEntity {
 
 	public void setLastDateOfSupscription(String lastDateOfSupscription) {
 		this.lastDateOfSupscription = lastDateOfSupscription;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

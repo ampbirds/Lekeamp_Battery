@@ -2,6 +2,7 @@ package com.bookingapp.service;
 
 import java.util.List;
 
+import com.bookingapp.dto.BatterMasterResponseDto;
 import com.bookingapp.dto.BatteryCodeDto;
 import com.bookingapp.dto.BatteryMasterDto;
 import com.bookingapp.dto.RequestIdDto;
@@ -12,7 +13,7 @@ public interface BatteryMasterService {
 
 	BatteryMaster save(BatteryMasterDto batteryMasterobj);
 
-	List<BatteryMaster> findAll();
+	List<BatterMasterResponseDto> findAll();
 
 	BatteryMaster getById(RequestIdDto requestIdDto);
 

@@ -1,11 +1,13 @@
 package com.bookingapp.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bookingapp.dto.BatterMasterResponseDto;
 import com.bookingapp.dto.BatteryCodeDto;
 import com.bookingapp.dto.BatteryMasterDto;
 import com.bookingapp.dto.RequestIdDto;
@@ -47,9 +49,30 @@ public class BatteryMasterServiceImpl implements BatteryMasterService{
 	}
 
 	@Override
-	public List<BatteryMaster> findAll() {
-		// TODO Auto-generated method stub
-		return batteryMasterRepository.findAll();
+	public List<BatterMasterResponseDto> findAll() {
+		List<BatteryMaster> batteryMasters = batteryMasterRepository.findAll();
+		List<BatterMasterResponseDto> batterMasterResponseDtos = new ArrayList<BatterMasterResponseDto>();
+		batteryMasters.stream().forEach(batteryObj->{
+			BatterMasterResponseDto batterMasterResponseDto = new BatterMasterResponseDto();
+			StationMaster master = batteryObj.getStationMaster();
+			batterMasterResponseDto.setBatteryCode(batteryObj.getBatteryCode());
+			batterMasterResponseDto.setBatteryVoltage(batteryObj.getBatteryVoltage());
+			batterMasterResponseDto.setStationAdd(master.getAddress());
+			batterMasterResponseDto.setStationId(master.getIdentity());
+			batterMasterResponseDto.setStationName(master.getName());
+			batterMasterResponseDto.setId(batteryObj.getId());
+			if(Integer.parseInt(batteryObj.getBatteryVoltage())>=30 && Integer.parseInt(batteryObj.getBatteryVoltage())<32) {
+				batterMasterResponseDto.setBatteryLevel(1);
+			}
+			if(Integer.parseInt(batteryObj.getBatteryVoltage())>=32 && Integer.parseInt(batteryObj.getBatteryVoltage())<40) {
+				batterMasterResponseDto.setBatteryLevel(2);
+			}
+			if(Integer.parseInt(batteryObj.getBatteryVoltage())>=40 ) {
+				batterMasterResponseDto.setBatteryLevel(3);
+			}
+			batterMasterResponseDtos.add(batterMasterResponseDto);
+		});
+		return batterMasterResponseDtos;
 	}
 
 	@Override

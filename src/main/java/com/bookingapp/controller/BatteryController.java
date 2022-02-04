@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bookingapp.dto.BatterMasterResponseDto;
 import com.bookingapp.dto.BatteryCodeDto;
 import com.bookingapp.dto.BatteryMasterDto;
 import com.bookingapp.dto.RequestIdDto;
@@ -21,20 +24,21 @@ import com.bookingapp.service.BatteryMasterService;
 
 @RestController
 @RequestMapping("/batteryapi")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BatteryController {
 	
 	@Autowired
 	BatteryMasterService batteryMasterService;
 	
 	@PostMapping("/createorUpdate")
-	public ResponseEntity<BatteryMaster>  createorUpdateBattery(BatteryMasterDto batteryMasterobj){
+	public ResponseEntity<BatteryMaster>  createorUpdateBattery(@RequestBody BatteryMasterDto batteryMasterobj){
 		BatteryMaster batteryMaster= batteryMasterService.save(batteryMasterobj);
 		return new ResponseEntity<BatteryMaster>(batteryMaster, new HttpHeaders(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/getAll")
-	public ResponseEntity<List<BatteryMaster>> getAllDetails(){
-		return new ResponseEntity<List<BatteryMaster>>(batteryMasterService.findAll(), new HttpHeaders(), HttpStatus.OK);
+	public ResponseEntity<List<BatterMasterResponseDto>> getAllDetails(){
+		return new ResponseEntity<List<BatterMasterResponseDto>>(batteryMasterService.findAll(), new HttpHeaders(), HttpStatus.OK);
 	}
 	
 	@PostMapping("/getById")

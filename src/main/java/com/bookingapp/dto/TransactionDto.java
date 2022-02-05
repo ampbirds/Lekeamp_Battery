@@ -8,9 +8,9 @@ import java.sql.Date;
 public class TransactionDto {
 
 	private long id;
-	private long userid ;
-	private long stationid;
-	private long batteryid;
+	private String userId ;
+	private long stationId;
+	private long batteryId;
 	private String batteryVoltage;
 	private Date date;
 	private String transactionId;
@@ -20,24 +20,7 @@ public class TransactionDto {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public long getUserid() {
-		return userid;
-	}
-	public void setUserid(long userid) {
-		this.userid = userid;
-	}
-	public long getStationid() {
-		return stationid;
-	}
-	public void setStationid(long stationid) {
-		this.stationid = stationid;
-	}
-	public long getBatteryid() {
-		return batteryid;
-	}
-	public void setBatteryid(long batteryid) {
-		this.batteryid = batteryid;
-	}
+	
 	public String getBatteryVoltage() {
 		return batteryVoltage;
 	}
@@ -55,6 +38,24 @@ public class TransactionDto {
 	}
 	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public long getStationId() {
+		return stationId;
+	}
+	public void setStationId(long stationId) {
+		this.stationId = stationId;
+	}
+	public long getBatteryId() {
+		return batteryId;
+	}
+	public void setBatteryId(long batteryId) {
+		this.batteryId = batteryId;
 	}
 	
 	

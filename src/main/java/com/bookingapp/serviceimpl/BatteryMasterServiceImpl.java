@@ -58,9 +58,11 @@ public class BatteryMasterServiceImpl implements BatteryMasterService{
 			batterMasterResponseDto.setBatteryCode(batteryObj.getBatteryCode());
 			batterMasterResponseDto.setBatteryVoltage(batteryObj.getBatteryVoltage());
 			batterMasterResponseDto.setStationAdd(master.getAddress());
-			batterMasterResponseDto.setStationId(master.getIdentity());
+			batterMasterResponseDto.setStationId(master.getStation_id());
+			batterMasterResponseDto.setStationUniqueId(master.getIdentity());
 			batterMasterResponseDto.setStationName(master.getName());
 			batterMasterResponseDto.setId(batteryObj.getId());
+			batterMasterResponseDto.setBatteryId(batteryObj.getId());
 			if(Integer.parseInt(batteryObj.getBatteryVoltage())>=30 && Integer.parseInt(batteryObj.getBatteryVoltage())<32) {
 				batterMasterResponseDto.setBatteryLevel(1);
 			}

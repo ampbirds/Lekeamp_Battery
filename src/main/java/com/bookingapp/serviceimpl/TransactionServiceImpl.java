@@ -42,22 +42,22 @@ public class TransactionServiceImpl implements TransactionService{
 		BatteryTransaction batteryTransaction = transactionRepository.findByTransactionId(transactionDto.getTransactionId());
 		if(batteryTransaction!=null) {
 			batteryTransaction.setBatteryVoltage(transactionDto.getBatteryVoltage());
-			Optional<BatteryMaster> batteryMaster = batteryMasterRepository.findById(transactionDto.getBatteryid());
+			Optional<BatteryMaster> batteryMaster = batteryMasterRepository.findById(transactionDto.getBatteryId());
 			batteryTransaction.setBatteryMaster(batteryMaster.get());
-			Optional<StationMaster> stationMaster = stationMasterRepository.findById(transactionDto.getStationid());
+			Optional<StationMaster> stationMaster = stationMasterRepository.findById(transactionDto.getStationId());
 			batteryTransaction.setStationMaster(stationMaster.get());
-			Optional<UserEntity> userEntity = userEntityRepository.findById(transactionDto.getUserid());
+			Optional<UserEntity> userEntity = userEntityRepository.findById(Long.parseLong(transactionDto.getUserId()));
 			batteryTransaction.setUserEntity(userEntity.get());
 			batteryTransaction.setDate(date);
 			transactionRepository.save(batteryTransaction);
 		}else {
 			BatteryTransaction batteryTransaction2 = new BatteryTransaction();
 			batteryTransaction2.setBatteryVoltage(transactionDto.getBatteryVoltage());
-			Optional<BatteryMaster> batteryMaster = batteryMasterRepository.findById(transactionDto.getBatteryid());
+			Optional<BatteryMaster> batteryMaster = batteryMasterRepository.findById(transactionDto.getBatteryId());
 			batteryTransaction2.setBatteryMaster(batteryMaster.get());
-			Optional<StationMaster> stationMaster = stationMasterRepository.findById(transactionDto.getStationid());
+			Optional<StationMaster> stationMaster = stationMasterRepository.findById(transactionDto.getStationId());
 			batteryTransaction2.setStationMaster(stationMaster.get());
-			Optional<UserEntity> userEntity = userEntityRepository.findById(transactionDto.getUserid());
+			Optional<UserEntity> userEntity = userEntityRepository.findById(Long.parseLong(transactionDto.getUserId()));
 			batteryTransaction2.setUserEntity(userEntity.get());
 			
 			BatteryTransaction batteryTransaction3 = null;

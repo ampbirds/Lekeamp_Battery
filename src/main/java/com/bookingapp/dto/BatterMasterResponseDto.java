@@ -5,9 +5,11 @@ public class BatterMasterResponseDto {
 	private String batteryCode;
 	private String batteryVoltage;
 	private String stationName;
-	private String stationId;
+	private long stationId;
+	private String stationUniqueId;
 	private String stationAdd;
 	private Integer batteryLevel;
+	private long batteryId;
 	
 	public Long getId() {
 		return id;
@@ -33,10 +35,10 @@ public class BatterMasterResponseDto {
 	public void setStationName(String stationName) {
 		this.stationName = stationName;
 	}
-	public String getStationId() {
+	public long getStationId() {
 		return stationId;
 	}
-	public void setStationId(String stationId) {
+	public void setStationId(long stationId) {
 		this.stationId = stationId;
 	}
 	public String getStationAdd() {
@@ -51,6 +53,19 @@ public class BatterMasterResponseDto {
 	public void setBatteryLevel(Integer batteryLevel) {
 		this.batteryLevel = batteryLevel;
 	}
+	public long getBatteryId() {
+		return batteryId;
+	}
+	public void setBatteryId(long batteryId) {
+		this.batteryId = batteryId;
+	}
+	public String getStationUniqueId() {
+		return stationUniqueId;
+	}
+	public void setStationUniqueId(String stationUniqueId) {
+		this.stationUniqueId = stationUniqueId;
+	}
+	
 	
 	
 }

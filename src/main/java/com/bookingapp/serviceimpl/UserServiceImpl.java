@@ -57,6 +57,7 @@ public class UserServiceImpl implements UserService{
 			loginDto.setStatus(false);
 		}else {
 			loginDto.setStatus(true);
+			loginDto.setUserId(user.getUserId());
 		}
 		return loginDto;
 	}

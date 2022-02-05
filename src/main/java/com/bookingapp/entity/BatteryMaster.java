@@ -28,6 +28,9 @@ public class BatteryMaster {
 	@Column(name = "battery_voltage")
 	private String batteryVoltage;
 
+	@Column(name = "self_no")
+	private String selfNo;
+	
 	public long getId() {
 		return id;
 	}
@@ -58,6 +61,14 @@ public class BatteryMaster {
 
 	public void setBatteryVoltage(String batteryVoltage) {
 		this.batteryVoltage = batteryVoltage;
+	}
+
+	public String getSelfNo() {
+		return selfNo;
+	}
+
+	public void setSelfNo(String selfNo) {
+		this.selfNo = selfNo;
 	}
 	
 	

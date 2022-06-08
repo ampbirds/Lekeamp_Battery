@@ -11,7 +11,7 @@
 	<groupId>com.bookingapp</groupId>
 	<artifactId>Lekeamp_Battery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>DigitalKokan</name>
+	<name>Lekeamp Battery</name>
 	<packaging>war</packaging>
 	<description>Ticket Booking application Project</description>
 
